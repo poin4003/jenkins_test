@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy Golang to DEV') {
             steps {
                 echo 'Deploying to DEV...'
-                sh 'docker image pull 400034/shop:latest'
+                sh 'docker pull 400034/shop:latest'
                 sh 'docker container stop jenkins_test || echo "this container does not exist"'
                 sh 'docker network create dev || echo "this network exists"'
                 sh 'echo y | docker container prune '
